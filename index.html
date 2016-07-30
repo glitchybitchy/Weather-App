@@ -19,14 +19,19 @@
   </head>
   <body>
   
+  <div class="container">
 
 	<div class="jumbotron jumbotron-fluid bg-info">
         <div class="container text-sm-center p-t-3">
-        <div class="circle"></div>
+        <div class="square"> 
+	        <canvas class="content"></canvas>
+        </div>
+
           <h1 class="display-3">Current Weather</h1>
           <p class="lead">This is a minimalist weather app, check the weather in your local area</p>
         <div class="input-group">
-		        <input type="text" class="form-control" placeholder="Email">
+		        <input type="text" class="form-control" placeholder="City or town name">
+
 		        <span class="input-group-btn">
 		          <button class="btn btn-primary" type="button">Go</button>
 
@@ -45,5 +50,6 @@
      <link href="css/style.css" rel="stylesheet">
 
 	<script src="js/main.js" type="text/javascript" charset="utf-8"></script>
+	</div>
   </body>
 </html>
