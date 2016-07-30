@@ -14,18 +14,29 @@
 $(document).ready(function(){
 	var weatherUrl = 'http://api.openweathermap.org/data/2.5/weather?q=';
 	var apiKey = '36edb0f1d925733bbb0dbf023b0d1ad9';
-	var city = 'london';
+	// var city = 'london';
+	
+	$('form').submit(function(event){
+		event.preventDefault();
 
-	$.ajax({
-   	url: weatherUrl + city + '&appid=' + apiKey,
-   	success: function (response){
-   		console.log(response);
-   	}
-    
-  });
+		var city = $('#city-name').val();
+   		console.log(city);
+
+   		$.ajax({
+		   	url: weatherUrl + city + '&appid=' + apiKey,
+		   	success: function (response){
+   			console.log(response.main.temp);
+   			console.log(response);
+			
+			}
+			    
+		});
+
+	});
+
+  	
+
+
 
 });
 
-// app.init = function(){};
-
-// $(document).ready(app.init);

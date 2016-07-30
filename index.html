@@ -27,15 +27,23 @@
 	        <canvas class="content"></canvas>
         </div>
 
-          <h1 class="display-3">Current Weather</h1>
-          <p class="lead">This is a minimalist weather app, check the weather in your local area</p>
-        <div class="input-group">
-		        <input type="text" class="form-control" placeholder="City or town name">
+        <h1 class="display-3">Current Weather</h1>
+        <p class="lead">This is a minimalist weather app, check the weather in your local area</p>
 
-		        <span class="input-group-btn">
-		          <button class="btn btn-primary" type="button">Go</button>
+        <form>
+	        <div class="input-group">
+			        
+			        <input type="text" class="form-control" id="city-name" placeholder="City or town name">
 
-				</span>
+			        <span class="input-group-btn">
+			          <button class="btn btn-primary" type="button">Go</button>
+
+					</span>
+			</div>
+		</form>
+		<div class="btn-group" role="group" aria-label="Basic example">
+		  <button type="button" class="btn btn-secondary">Celcius</button>
+		  <button type="button" class="btn btn-secondary">Farenheit</button>
 		</div>
         
           </div>
