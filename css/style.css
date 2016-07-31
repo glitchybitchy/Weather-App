@@ -49,5 +49,6 @@ canvas{
 }
 
 #current-weather{
+	margin-top: 100px;
 	color:black;
 }
