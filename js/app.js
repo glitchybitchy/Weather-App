@@ -10,10 +10,7 @@ particlesJS.load('particles-js', 'particles.json', function() {
 */
 
 /* Otherwise just put the config content (json): */
-
-particlesJS('particles-js',
-  
-  {
+var settings = {
     "particles": {
       "number": {
         "value": 80,
@@ -70,7 +67,7 @@ particlesJS('particles-js',
       "move": {
         "enable": true,
         "speed": 6,
-        "direction": "none",
+        "direction": "top",
         "random": false,
         "straight": false,
         "out_mode": "out",
@@ -128,6 +125,6 @@ particlesJS('particles-js',
       "background_repeat": "no-repeat",
       "background_size": "cover"
     }
-  }
+  };
 
-);
+particlesJS('particles-js', settings );

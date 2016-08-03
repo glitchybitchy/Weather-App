@@ -41,8 +41,10 @@ $(document).ready(function(){
 
 	});
 
-  	
-
+	// window.settings.something = 'stuff';
+	
+  	var particleSpeed = settings.particles.move.speed;
+  	console.log(particleSpeed);
 
 
 });
