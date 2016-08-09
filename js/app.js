@@ -67,7 +67,7 @@ var settings = {
       "move": {
         "enable": true,
         "speed": 6,
-        "direction": "top",
+        "direction": "random",
         "random": false,
         "straight": false,
         "out_mode": "out",
