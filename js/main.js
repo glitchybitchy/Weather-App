@@ -1,43 +1,89 @@
 /*
+	get app to display default location on load
+	create celcius and farenheit functions
+	bind them to the ui buttons
 
-- Sign up for openweathermap.org and generate an API key.
-- User either $.ajax or $.get to pull weather current data for London
-- Print the temperature in console.
-- Possible next steps
-- 1: Display the temperature in the UI rather than the console
-- 2: Display an icon or image depending on the current weather
-- 3: add a form prompting user for the city.
-- 4: add a toggle for switching between farenheit and celcius
-
+	save speed and direction to variables
+	map speed value according to wind speed
+	update direction with speed direction
+	
 */
 
 $(document).ready(function(){
 	var weatherUrl = 'http://api.openweathermap.org/data/2.5/weather?q=';
 	var apiKey = '36edb0f1d925733bbb0dbf023b0d1ad9';
-	
+	var city = 'London';
+	var newCity;
+	var newTemp;
+	var tempCelsius;
+	var tempFarenheit;
 	// var city = 'london';
-	
-	$('form').submit(function(event){
-		event.preventDefault();
 
-		var city = $('#city-name').val();
-   		console.log(city);
-   		
+	var updateCityName = function(newCity){
+		$('#current-city').text(newCity);
+	};
 
-   		$.ajax({
+
+
+
+	$.ajax({
 		   	url: weatherUrl + city + '&appid=' + apiKey,
 		   	success: function (response){
-   			console.log(response.main.temp);
-   			console.log(response);
 
 			var temp = response.main.temp;
-			console.log(temp);
 
-			$('#weather-container').html("<p id='current-weather' class='display-3'>"+temp+"</p>");
+			var tempCelsius = Math.floor (temp - 273.15);
+			var tempFarenheit = Math.floor(temp * 9/5 - 459.67);
+
+			console.log(tempCelsius,tempFarenheit);
+
+			$('#weather-container').append("<p id= 'current-weather'class='display-3'>" + tempCelsius + "C˚");
+			$('#weather-container').append("<p id= 'current-city' class='display-3'>"+city+"</p>");
 
 			}
 			    
 		});
+	
+	$('form').submit(function(event){
+		event.preventDefault();
+
+		var newCity = $('#city-name').val();
+
+		var updateTemp = function () {
+			
+			$.ajax({
+
+				url: weatherUrl + newCity + '&appid=' + apiKey,
+				success: function (response){
+
+					var newTemp = response.main.temp;
+					console.log(newTemp, newCity);
+					var newTempCelsius = Math.floor (newTemp - 273.15);
+
+					var	changeTempOnScreen = function (){
+						$('#current-weather').text(newTempCelsius + 'C˚');
+					};
+
+					changeTempOnScreen(newTemp);	
+
+					return newTemp;
+
+				}
+
+
+			});
+			
+		
+
+		};	
+		
+   		
+   		updateCityName(newCity);
+   		updateTemp(newTemp);
+
+   		
+   		
+
 
 	});
 
